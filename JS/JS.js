@@ -1,34 +1,33 @@
-let carrinho = [];
+let total = 0;
 
 function adicionarProduto() {
-    let nome = document.getElementById("produto").value;
-    let valor = parseFloat(document.getElementById("valor").value);
-    let quantidade = parseInt(document.getElementById("quantidade").value);
+    // Pegar os valores dos inputs
+    const produto = document.getElementById("produto").value;
+    const valor = parseFloat(document.getElementById("valor").value);
+    const quantidade = parseInt(document.getElementById("quantidade").value);
 
-    carrinho.push({nome, valor, quantidade});
-    atualizarCarrinho();
-}
+    // Validar campos
+    if (produto === "" || isNaN(valor) || isNaN(quantidade) || quantidade <= 0) {
+        alert("Preencha todos os campos corretamente!");
+        return;
+    }
 
-function removerProduto(index) {
-    carrinho.splice(index, 1);
-    atualizarCarrinho();
-}
+    // Calcular subtotal
+    const subtotal = valor * quantidade;
+    total += subtotal;
 
-function atualizarCarrinho() {
-    let lista = document.getElementById("carrinho");
-    lista.innerHTML = "";
-    let total = 0;
+    // Criar item da lista
+    const li = document.createElement("li");
+    li.textContent = `${produto} - R$ ${valor.toFixed(2)} x ${quantidade} = R$ ${subtotal.toFixed(2)}`;
 
-    carrinho.forEach((item, index) => {
-        total += item.valor * item.quantidade;
-        let li = document.createElement("li");
-        li.textContent = `${item.nome} - R$${item.valor} x ${item.quantidade}`;
-        let btn = document.createElement("button");
-        btn.textContent = "Remover";
-        btn.onclick = () => removerProduto(index);
-        li.appendChild(btn);
-        lista.appendChild(li);
-    });
+    // Adicionar item no carrinho
+    document.getElementById("carrinho").appendChild(li);
 
-    document.getElementById("total").textContent = "Total: R$ " + total.toFixed(2);
+    // Atualizar total
+    document.getElementById("total").textContent = `Total: R$ ${total.toFixed(2)}`;
+
+    // Limpar os inputs
+    document.getElementById("produto").value = "";
+    document.getElementById("valor").value = "";
+    document.getElementById("quantidade").value = "";
 }
