@@ -1,19 +1,18 @@
 <script>
-    // Arrays com produtos, valores e quantidade vendida na semana
 let produtos = ["Camiseta", "Calça", "Boné"];
 let valores = [50, 120, 35];
-let vendas = [10, 5, 20]; // quantidade vendida na semana
+let vendas = [10, 5, 20];
 
-// Cálculo do total vendido
+
 let totalVendas = 0;
 for(let i = 0; i < produtos.length; i++){
     totalVendas += valores[i] * vendas[i];
 }
 
-// Média diária (considerando 7 dias)
+
 let mediaDiaria = totalVendas / 7;
 
-// Maior e menor valor de venda
+
 let valoresVendas = valores.map((v,i) => v*vendas[i]);
 let maiorVenda = Math.max(...valoresVendas);
 let menorVenda = Math.min(...valoresVendas);

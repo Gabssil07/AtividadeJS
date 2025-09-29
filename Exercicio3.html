@@ -8,10 +8,11 @@
 <body>
     <h1>Carrinho de Compras</h1>
     <div>
-        <input type="text" id="produto" placeholder="Produto">
-        <input type="number" id="valor" placeholder="Valor">
-        <input type="number" id="quantidade" placeholder="Quantidade">
-        <button onclick="adicionarProduto()">Adicionar</button>
+        <input type="text" id="produto" placeholder="Produto" required>
+        <input type="text" id="valor" placeholder="Valor" required>
+        <input type="number" id="quantidade" placeholder="Quantidade" required> <br>
+        <button onclick="adicionarProduto()" >Adicionar ao carrinho </button>
+        
     </div>
     <ul id="carrinho"></ul>
     <h2 id="total">Total: R$ 0</h2>

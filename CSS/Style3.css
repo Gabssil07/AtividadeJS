@@ -1,5 +1,23 @@
-body { font-family: Arial, sans-serif; padding: 20px; }
+body { font-family:
+    Arial,
+    sans-serif;
+    padding: 20px;
+    background-color: rgb(75, 75, 156);
+
+ }
 input { margin: 5px; }
 button { margin: 5px; }
 ul { list-style-type: none; padding: 0; }
 li { margin: 5px 0; }
+
+.produto {
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border-color: rgb(0, 247, 255);
+    border-top: 20px;
+    border-width: 20px;
+    padding: 20px;
+    border-left: 20px;
+    border-right: 20px;
+    
+}
