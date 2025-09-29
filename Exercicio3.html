@@ -13,8 +13,21 @@
         <input type="number" id="quantidade" placeholder="Quantidade">
         <button onclick="adicionarProduto()">Adicionar</button>
     </div>
-    <ul id="carrinho"></ul>
-    <h2 id="total">Total: R$ 0</h2>
+
+    <!-- TABELA DO CARRINHO -->
+    <table border="1" id="carrinho">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Valor (R$)</th>
+                <th>Quantidade</th>
+                <th>Total (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas serão adicionadas aqui -->
+        </tbody>
+    </table>
 
     <script src="JS/JS.js"></script>
 </body>

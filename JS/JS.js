@@ -16,12 +16,19 @@ function adicionarProduto() {
     const subtotal = valor * quantidade;
     total += subtotal;
 
-    // Criar item da lista
-    const li = document.createElement("li");
-    li.textContent = `${produto} - R$ ${valor.toFixed(2)} x ${quantidade} = R$ ${subtotal.toFixed(2)}`;
+    // Criar nova linha na tabela
+    const tabela = document.getElementById("carrinho").getElementsByTagName("tbody")[0];
+    const novaLinha = tabela.insertRow();
 
-    // Adicionar item no carrinho
-    document.getElementById("carrinho").appendChild(li);
+    const celulaProduto = novaLinha.insertCell(0);
+    const celulaValor = novaLinha.insertCell(1);
+    const celulaQuantidade = novaLinha.insertCell(2);
+    const celulaSubtotal = novaLinha.insertCell(3);
+
+    celulaProduto.textContent = produto;
+    celulaValor.textContent = `R$ ${valor.toFixed(2)}`;
+    celulaQuantidade.textContent = quantidade;
+    celulaSubtotal.textContent = `R$ ${subtotal.toFixed(2)}`;
 
     // Atualizar total
     document.getElementById("total").textContent = `Total: R$ ${total.toFixed(2)}`;
@@ -31,3 +38,4 @@ function adicionarProduto() {
     document.getElementById("valor").value = "";
     document.getElementById("quantidade").value = "";
 }
+document.getElementById("adicionar").addEventListener("click", adicionarProduto);
